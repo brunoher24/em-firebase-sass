@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Firebase-sass</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
+        integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+    <link rel="stylesheet" href="scss/index.css">
+</head>
+
+<body>
+    <main id='main-ctnr'>
+        <div id='form-ctnr'>
+            <form>
+                <h2>SE CONNECTER AVEC</h2>
+                <button id='fb-connect-btn'>FACEBOOK</button>
+                <button id='google-connect-btn'>GOOGLE +</button>
+                <p class='or'>OU BIEN</p>
+                <p>
+                    <i class="far fa-envelope-open"></i>
+                    <input type="email" id="mail-input" placeholder="E-MAIL">
+                </p>
+                <p>
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="pwd-input" placeholder="MOT DE PASSE">
+                </p>
+                <button id='login-btn'>CONNEXION</button>
+                <p><a href="">Pas encore inscrit ?</a></p>
+                <a href="">Mot de passe oubié ?</a>
+
+            </form>
+        </div>
+    </main>
+    <!-- FIREBASE -->
+    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-firestore.js"></script>
+
+    <!-- MY CODE -->
+    <script src="js/fb_config.js"></script>
+    <script src="js/fb_facebook_login.js"></script>
+    <script src="js/index.js"></script>
+</body>
+
+</html>
