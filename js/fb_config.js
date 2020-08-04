@@ -14,6 +14,3 @@ function Firebase_() {
 
 const firebase_ = new Firebase_();
 
-// Initialize Cloud Firestore through Firebase
-
-

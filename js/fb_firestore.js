@@ -25,22 +25,17 @@ firebase_.updateRefreshedPageNode = (refreshedNbr) => {
         console.error("Error updating document: ", error);
     });
 }
-
-db.collection("pageRefreshed").get().then(querySnapshot => {
-    console.log(querySnapshot.size);
-    if(querySnapshot.size < 1) {
-        firebase_.initRefreshedPageNode();
-    } else {
-        querySnapshot.forEach(doc => {
-            firebase_.updateRefreshedPageNode(doc.data().refreshedNbr);
-        });
-    }
-   
-}).catch(err => {
-    console.log(err);
-});
-
-document.querySelector('#fb-connect-btn').addEventListener('click', firebase_.fbSignin);
-
-
-
+firebase_.implementRefreshedPageNode = () => {
+    db.collection("pageRefreshed").get().then(querySnapshot => {
+        console.log(querySnapshot.size);
+        if(querySnapshot.size < 1) {
+            firebase_.initRefreshedPageNode();
+        } else {
+            querySnapshot.forEach(doc => {
+                firebase_.updateRefreshedPageNode(doc.data().refreshedNbr);
+            });
+        }
+    }).catch(err => {
+        console.log(err);
+    });
+};

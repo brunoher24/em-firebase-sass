@@ -1,0 +1,7 @@
+@import 'signup-login';
+
+body {
+    #main-ctnr {
+        @include borderImage(rgba(48, 94, 187,0.5), rgba(98, 212, 149,0.5));
+    } 
+}

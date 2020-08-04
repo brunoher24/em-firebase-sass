@@ -4,23 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Firebase-sass</title>
+    <title>Inscription</title>
     <!-- FONTAWESOME -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
       <!-- MY CSS -->
-    <link rel="stylesheet" href="scss/index.css">
+    <link rel="stylesheet" href="../scss/signup.css">
 </head>
 
 <body>
     <main id='main-ctnr'>
-
         <div id='form-ctnr'>
-            
             <form>
-                <h2>SE CONNECTER AVEC</h2>
-                <button id='fb-connect-btn'>FACEBOOK</button>
-                <button id='google-connect-btn'>GOOGLE +</button>
-                <p class='or'>OU BIEN</p>
+                <h2>S'INSCRIRE</h2>
                 <p>
                     <i class="far fa-envelope-open"></i>
                     <input type="email" id="mail-input" placeholder="E-MAIL">
@@ -29,10 +24,8 @@
                     <i class="fas fa-lock"></i>
                     <input type="password" id="pwd-input" placeholder="MOT DE PASSE">
                 </p>
-                <button id='login-btn' class='submit-btn'>CONNEXION</button>
-                <p><a href="pages/signup.html">Pas encore inscrit ?</a></p>
-                <a href="">Mot de passe oubié ?</a>
-
+                <button id='signup-btn' class='submit-btn'>INSCRIPTION</button>
+                <p><a href="../index.html">Retour à l'accueil</a></p>
             </form>
         </div>
     </main>
@@ -45,11 +38,11 @@
     <!-- MY CODE -->
 
     <!-- Firebase helpers -->
-    <script src="js/fb_config.js"></script>
-    <script src="js/fb_auth.js"></script>
-    <script src="js/fb_firestore.js"></script>
+    <script src="../js/fb_config.js"></script>
+    <script src="../js/fb_auth.js"></script>
+    <script src="../js/fb_firestore.js"></script>
     
-    <script src="js/ctrl_index.js"></script>
+    <script src="../js/ctrl_signup.js"></script>
 </body>
 
 </html>

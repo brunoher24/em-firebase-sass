@@ -1,102 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@200;400;700&display=swap');
-
-$fb_blue: #305EBB;
-$google_red: #DD5159; 
-$green: #62D495;
-$grey: #7A808A;
+@import 'signup-login';
 
 body {
-    margin: 0;
-    padding: 0;
-    background-image: url('../res/background-screen.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    font-family: 'Mulish', sans-serif;
-
-    
     #main-ctnr {
-        border: 40px solid;
-        border-image:  linear-gradient(rgba(185,0,0,0.5), rgba(252,245,0,0.5))90;
-    }
-    
+        @include borderImage(rgba(48, 94, 187,0.5), rgba(221, 81, 89,0.5));
+    } 
 }
 
-#form-ctnr {
-    width: 100%;
- 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-
-    form {
-        width: 320px;
-        height: 500px;
-        display: flex;
-        flex-direction: column;
-        color: $grey;
-
-        h2 {
-            font-size: 21px;
-            color: #413e3e;
-            text-align: center;
-        }
-
-        p {
-            position: relative;
-        
-            i {
-                position: absolute;
-                bottom: 15px;
-                left: 10px;
-            }
-        }
-
-        button, input {
-            border: none;
-        }
-
-        button {
-            border-radius: 3px;
-            margin-bottom: 15px;
-            padding: 15px;
-            font-size: 12px;
-            color: white;
-        }
-
-        input {
-            width: 85%;
-            padding: 0 0 0 15%;
-            height: 40px;
-            background-color: transparent;
-            border-bottom: 1px solid $grey;
-            &:focus {
-                border-bottom: solid 2px $fb_blue;
-                outline: none;
-                transition: border-bottom-width 0.4s linear;
-            }
-        }
-
-        a {
-            color: $grey;
-        }
-
-        #fb-connect-btn {
-            background-color: $fb_blue;
-        }
-        
-        #google-connect-btn {
-            background-color: $google_red;
-        }
-        
-        #login-btn {
-            background-color: $green;
-            color: $grey;
-        }
-    }
+#fb-connect-btn {
+    background-color: $fb_blue;
 }
 
-p.or {
-    text-align: center;
+#google-connect-btn {
+    background-color: $google_red;
 }
-
