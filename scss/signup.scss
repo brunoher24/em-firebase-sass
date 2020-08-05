@@ -5,3 +5,14 @@ body {
         @include borderImage(rgba(48, 94, 187,0.5), rgba(98, 212, 149,0.5));
     } 
 }
+
+#img-ctnr {
+    box-shadow: 1px 1px 6px silver;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 20px auto;
+    display: none;
+}

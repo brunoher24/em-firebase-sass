@@ -12,11 +12,11 @@ function Firebase_() {
     firebase.initializeApp(firebaseConfig);
     
     this.errors = {
-      'auth/invalid-email' : 'Adresse mail non valide.',
-      'auth/weak-password' : 'Mot de passe trop faible (au moins 6 caractères)',
+      'auth/invalid-email'        : 'Adresse mail non valide.',
+      'auth/weak-password'        : 'Mot de passe trop faible (au moins 6 caractères)',
       'auth/email-already-in-use' : 'Cette adresse mail est déjà prise !',
-      'auth/user-not-found' : 'Utilisateur non-trouvé !',
-      'auth/wrong-password' : 'Mot de passe non valide !'
+      'auth/user-not-found'       : 'Utilisateur non-trouvé !',
+      'auth/wrong-password'       : 'Mot de passe non valide !'
     };
 }
 

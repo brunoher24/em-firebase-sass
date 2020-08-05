@@ -1,4 +1,4 @@
-function Popup(text, okCallback, okParams, cancelCallback, cancelParams) {
+function Popup() {
 
     this.display = () => {
         
@@ -27,7 +27,7 @@ function Popup(text, okCallback, okParams, cancelCallback, cancelParams) {
             this.$popupCtnr.style[prop] = popupStyle[prop];
         }
         
-        this.show();
+        this.show(text, okCallback, okParams, cancelCallback, cancelParams);
     
         $popupMsgCtnr = document.createElement('h3');
         $popupMsgCtnr.innerHTML = text;

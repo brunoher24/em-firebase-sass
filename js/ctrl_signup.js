@@ -13,3 +13,14 @@ $signupBtn.addEventListener('click', function(e) {
     firebase_.signupWithEmailAndPassword(email, password);
 });
 
+async function getImage(file) {
+   const imageData = await getImageData(file);
+   return imageData;
+};
+
+document.querySelector('#file-input').addEventListener('change', e => {
+   getImage(e.target.files[0]).then(imageData => {
+    console.log(imageData);
+   });
+});
+

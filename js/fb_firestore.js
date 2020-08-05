@@ -22,9 +22,9 @@ firebase_.readData = (ref, callback) => {
 firebase_.updateData = (collectionRef, docRef, data) => {
     db.collection(collectionRef).doc(docRef).update(data)
     .then(() => {
-        console.log("Document was created !");
+        console.log("Document was updated !");
     })
     .catch(error => {
-        console.error("Error creating document: ", error);
+        console.error("Error updating document: ", error);
     });
 };
