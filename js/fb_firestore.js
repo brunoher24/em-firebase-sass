@@ -1,10 +1,8 @@
 const db = firebase.firestore();
 
-firebase_.initRefreshedPageNode = () => {
-    db.collection("pageRefreshed").doc('infos').set({
-        lastTimeRefreshed: new Date().getTime(),
-        refreshedNbr: 0
-    })
+
+firebase_.writeData = (collectionRef, docRef, data) => {
+    db.collection(collectionRef).doc(docRef).set(data)
     .then(() => {
         console.log("Document was created !");
     })
@@ -13,29 +11,20 @@ firebase_.initRefreshedPageNode = () => {
     });
 }
 
-firebase_.updateRefreshedPageNode = (refreshedNbr) => {
-    db.collection("pageRefreshed").doc('infos').update({
-        lastTimeRefreshed: new Date().getTime(),
-        refreshedNbr: refreshedNbr + 1
-    })
-    .then(() => {
-        console.log("Document was updated !");
-    })
-    .catch(error => {
-        console.error("Error updating document: ", error);
-    });
-}
-firebase_.implementRefreshedPageNode = () => {
-    db.collection("pageRefreshed").get().then(querySnapshot => {
-        console.log(querySnapshot.size);
-        if(querySnapshot.size < 1) {
-            firebase_.initRefreshedPageNode();
-        } else {
-            querySnapshot.forEach(doc => {
-                firebase_.updateRefreshedPageNode(doc.data().refreshedNbr);
-            });
-        }
+firebase_.readData = (ref, callback) => {
+    db.collection(ref).get().then(querySnapshot => {
+        callback(querySnapshot);
     }).catch(err => {
         console.log(err);
+    });
+};
+
+firebase_.updateData = (collectionRef, docRef, data) => {
+    db.collection(collectionRef).doc(docRef).update(data)
+    .then(() => {
+        console.log("Document was created !");
+    })
+    .catch(error => {
+        console.error("Error creating document: ", error);
     });
 };

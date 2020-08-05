@@ -41,8 +41,9 @@ body #main-ctnr {
 
 #form-ctnr form h2 {
   font-size: 21px;
-  color: #413e3e;
+  color: #62d495;
   text-align: center;
+  display: inline;
 }
 
 #form-ctnr form p {
@@ -65,6 +66,13 @@ body #main-ctnr {
   padding: 15px;
   font-size: 12px;
   color: white;
+}
+
+@media (max-width: 420px) {
+  #form-ctnr form button {
+    width: 220px;
+    margin: 0 auto 15px auto;
+  }
 }
 
 #form-ctnr form input {

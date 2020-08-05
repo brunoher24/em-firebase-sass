@@ -5,6 +5,12 @@ $google_red: rgb(221, 81, 89);
 $green: rgb(98, 212, 149);
 $grey: rgb(122, 128, 138);
 
+@mixin smallSizedBtn {
+    @media (max-width: 420px) {
+        @content;
+    }
+}
+
 @mixin borderImage($from, $to) {
     border-image:  linear-gradient($from, $to)90;
 }
@@ -39,8 +45,9 @@ body {
 
         h2 {
             font-size: 21px;
-            color: #413e3e;
+            color: $green;
             text-align: center;
+            display: inline;
         }
 
         p {
@@ -63,6 +70,10 @@ body {
             padding: 15px;
             font-size: 12px;
             color: white;
+            @include smallSizedBtn {
+                width: 220px;
+                margin: 0 auto 15px auto;
+            }
         }
 
         input {
