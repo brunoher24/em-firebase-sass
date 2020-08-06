@@ -1,0 +1,11 @@
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  z-index: 1;
+  background: -webkit-gradient(linear, right top, left top, from(#62d495), to(#3eaaf2));
+  background: linear-gradient(to left, #62d495, #3eaaf2);
+}
+/*# sourceMappingURL=header.css.map */

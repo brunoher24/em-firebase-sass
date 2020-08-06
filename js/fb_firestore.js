@@ -15,9 +15,34 @@ firebase_.writeData = (collectionRef, docRef, data) => {
     });
 }
 
-firebase_.readData = ref => {
+firebase_.readData = (ref, docRef) => {
     return new Promise((resolve, reject) => {
-        db.collection(ref).get().then(querySnapshot => {
+        let dbRef = db.collection(ref).doc(docRef);
+        dbRef.get().then(querySnapshot => {
+            resolve(querySnapshot);
+        }).catch(err => {
+            reject(err);
+        });
+    });
+}
+
+firebase_.readCollection = (ref, orderBy, orberByField, orderDir, limitNbr, elementToStartAfter) => {
+    return new Promise((resolve, reject) => {
+        let dbRef = db.collection(ref);
+        
+        if(orderBy) {
+            dbRef = dbRef.orderBy(orberByField, orderDir);
+        }
+
+        if(elementToStartAfter) {
+            dbRef = dbRef.startAfter(elementToStartAfter);
+        }
+
+        if(limitNbr) {
+            dbRef = dbRef.limit(limitNbr);
+        }
+
+        dbRef.get().then(querySnapshot => {
             resolve(querySnapshot);
         }).catch(err => {
             reject(err);

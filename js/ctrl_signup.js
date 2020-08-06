@@ -1,11 +1,11 @@
-$emailInput = document.querySelector('#mail-input');
-$pwdInput   = document.querySelector('#pwd-input');
-$fileInput  = document.querySelector('#file-input');
-$imgCtnr    = document.querySelector('#img-ctnr');
-$form       = document.querySelector('form');
+const $emailInput = document.querySelector('#mail-input');
+const $pwdInput   = document.querySelector('#pwd-input');
+const $nameInput  = document.querySelector('#name-input');
+const $fileInput  = document.querySelector('#file-input');
+const $imgCtnr    = document.querySelector('#img-ctnr');
+const $form       = document.querySelector('form');
 
 $fileInput.addEventListener('change', e => {
-
     getImage(e.target.files[0]).then(imageData => {
         $imgCtnr.style.display         = 'block';
         $imgCtnr.style.backgroundImage = `url(${imageData})`; 
@@ -20,6 +20,7 @@ $form.addEventListener('submit', async e => {
     let popup;
     const email     = $emailInput.value.trim();
     const password  = $pwdInput.value.trim();
+    const name      = $nameInput.value.trim();
     
     const uid       = await firebase_.signupWithEmailAndPassword(email, password);
     if (!uid) {
@@ -30,7 +31,7 @@ $form.addEventListener('submit', async e => {
     popup = new Popup('Votre inscription a bien été effectuée !');
     delete popup;
 
-    const userCreated = await createUser(email, uid);
+    const userCreated = await createUser(email, uid, name);
     if(!userCreated) {
         popup = new Popup('Erreur lors de l\'ajout de vos infos en base de données !');
         delete popup;
@@ -51,6 +52,8 @@ $form.addEventListener('submit', async e => {
         popup = new Popup('Erreur d\'ajout de l\'image !');
         delete popup;
     }
+
+    window.location.href = '../public/index.html';
 });
 
 async function getImage(file) {
@@ -58,11 +61,12 @@ async function getImage(file) {
    return imageData;
 };
 
-const createUser = (email, uid) => {
+const createUser = (email, uid, name) => {
     return new Promise(async (resolve, reject) => {
         const result = await firebase_.writeData('users', uid, {
             id: uid,
-            email: email
+            email: email,
+            name: name
         });
         result === 'success' ? resolve('success') : reject('error');
     });

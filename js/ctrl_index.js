@@ -8,12 +8,16 @@ $fbConnectBtn.addEventListener('click', e => {
 });
 
 const $signinBtn = document.querySelector('#login-btn');
-$signinBtn.addEventListener('click', e => {
+$signinBtn.addEventListener('click', async e => {
     e.preventDefault();
 
     const email     = $emailInput.value.trim();
     const password  = $pwdInput.value.trim();
-    firebase_.signinWithEmailAndPassword(email, password);
+    const uid       = await firebase_.signinWithEmailAndPassword(email, password);
+    if(!uid) return;
+    console.log(uid);
+    const user      = await getUser(uid);
+    console.log(user.data()); 
 });
 
 
@@ -32,16 +36,21 @@ const updateRefreshedPageNode = (refreshedNbr) => {
 };
 
 const implementRefreshedPageNode = async () => {
-    const querySnapshot = await firebase_.readData("pageRefreshed");
-    
-    if(querySnapshot.size < 1) {
+    const querySnapshot = await firebase_.readData("pageRefreshed", "infos");
+ 
+    if(!querySnapshot.data()) {
         initRefreshedPageNode();
     } else {
-        querySnapshot.forEach(doc => {
-            updateRefreshedPageNode(doc.data().refreshedNbr);
-        });
+        updateRefreshedPageNode(querySnapshot.data().refreshedNbr);
     }
-   
+    
 }; 
+
+const getUser = (uid) => {
+    return new Promise(resolve => {
+        user = firebase_.readData('users', uid);
+        resolve(user);
+    });
+}
 
 implementRefreshedPageNode();

@@ -1,0 +1,59 @@
+@import 'header';
+
+body {
+    margin: 0;
+}
+
+#main-ctnr {
+    width: 100vw;
+    height: 100vh;
+    background-image: url('../res/playmobil-blur.jpg');
+    background-size: cover;
+    background-position: center;
+    padding-top: 100px;
+}
+
+h1 {
+    text-align: center;
+}
+
+#messages-list {
+
+    list-style-type: none;
+    li {
+        padding: 10px;
+        border-radius: 9px;
+        box-shadow: 1px 1px 4px grey;
+        width: 40%;
+        box-sizing: border-box;
+        
+        &.right {
+            margin-left: 55%;
+        }
+
+        &.left {
+            margin-left: 5%;
+        }
+
+        .msg-header {
+            display: flex;
+            justify-content: center;
+            & > * {
+                margin: 10px;
+            }
+        }
+
+        .user-img {
+            width: 40px;
+            height: 40px;
+            border: 1px double silver;
+            border-radius: 50%;
+            box-shadow: 1px 1px 3px grey;
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+    }
+    
+}
+
