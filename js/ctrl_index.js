@@ -17,30 +17,31 @@ $signinBtn.addEventListener('click', e => {
 });
 
 
-initRefreshedPageNode = () => {
+const initRefreshedPageNode = () => {
     firebase_.writeData("pageRefreshed", "infos", {
         lastTimeRefreshed: new Date().getTime(),
         refreshedNbr: 0
     });
 };
 
-updateRefreshedPageNode = (refreshedNbr) => {
+const updateRefreshedPageNode = (refreshedNbr) => {
     firebase_.updateData("pageRefreshed", "infos", {
         lastTimeRefreshed: new Date().getTime(),
         refreshedNbr: refreshedNbr + 1
     });
 };
 
-implementRefreshedPageNode = () => {
-    firebase_.readData("pageRefreshed", querySnapshot => {
-        if(querySnapshot.size < 1) {
-            initRefreshedPageNode();
-        } else {
-            querySnapshot.forEach(doc => {
-                updateRefreshedPageNode(doc.data().refreshedNbr);
-            });
-        }
-    });
+const implementRefreshedPageNode = async () => {
+    const querySnapshot = await firebase_.readData("pageRefreshed");
+    
+    if(querySnapshot.size < 1) {
+        initRefreshedPageNode();
+    } else {
+        querySnapshot.forEach(doc => {
+            updateRefreshedPageNode(doc.data().refreshedNbr);
+        });
+    }
+   
 }; 
 
 implementRefreshedPageNode();

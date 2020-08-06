@@ -16,7 +16,10 @@ function Firebase_() {
       'auth/weak-password'        : 'Mot de passe trop faible (au moins 6 caractères)',
       'auth/email-already-in-use' : 'Cette adresse mail est déjà prise !',
       'auth/user-not-found'       : 'Utilisateur non-trouvé !',
-      'auth/wrong-password'       : 'Mot de passe non valide !'
+      'auth/wrong-password'       : 'Mot de passe non valide !',
+      'auth/unauthorized-domain'  : `Votre domaine (${window.location.hostname}) n'est pas autorisé à effectuer cette opération. Vous pouvez l'ajouter à la liste 'OAuth redirect domains' dans votre console Firebase -> section 'Authentification' -> Onglet 'Méthode d'inscription'`,
+      'auth/too-many-requests'    : 'Trop de requêtes échouées ... Veuillez réessayer dans quelques instants',
+      'auth/operation-not-supported-in-this-environment' : 'Opération non supportée par votre environnement de dévelopement. "location.protocol" doit être en "http", "https" ou "chrome-extension" et l\'API "web storage" doit être activée'
     };
 }
 

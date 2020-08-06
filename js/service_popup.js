@@ -1,4 +1,4 @@
-function Popup() {
+function Popup(text, okCallback, okParams, cancelCallback, cancelParams) {
 
     this.display = () => {
         
@@ -12,12 +12,13 @@ function Popup() {
 
         const popupStyle = {
             backgroundColor: 'white',
+            textAlign: 'center',
             boxShadow: '1px 1px 4px silver',
             padding: '20px',
             borderRadius: '4px',
             zIndex: 10,
             position: 'fixed',
-            width: '300px',
+            width: '260px',
             left: 'calc(50% - 150px)',
             top: '100px',
             transform: 'scale(0)'
@@ -27,9 +28,9 @@ function Popup() {
             this.$popupCtnr.style[prop] = popupStyle[prop];
         }
         
-        this.show(text, okCallback, okParams, cancelCallback, cancelParams);
+        this.show();
     
-        $popupMsgCtnr = document.createElement('h3');
+        $popupMsgCtnr = document.createElement('h6');
         $popupMsgCtnr.innerHTML = text;
         this.$popupCtnr.appendChild($popupMsgCtnr);
     
@@ -40,9 +41,9 @@ function Popup() {
         this.$popupCtnr.appendChild($btnsCtnr);
     
         const $okBtnCtnr = document.createElement('button');
-        $okBtnCtnr.style.backgroundColor = 'green';
+        $okBtnCtnr.style.backgroundColor = '#305ebb';
         $okBtnCtnr.style.color = 'white';
-        $okBtnCtnr.style.marginRight = '25px';
+        $okBtnCtnr.style.margin = '0 15px';
         $okBtnCtnr.style.border = 'none';
         $okBtnCtnr.style.borderRadius = '4px';
         $okBtnCtnr.style.width = '100px';
@@ -60,7 +61,7 @@ function Popup() {
         
         if(cancelCallback) {
             const $cancelBtnCtnr = document.createElement('button');
-            $cancelBtnCtnr.style.backgroundColor = 'red';
+            $cancelBtnCtnr.style.backgroundColor = '#dd5159';
             $cancelBtnCtnr.style.color = 'white';
             $cancelBtnCtnr.style.marginRight = '25px';
             $cancelBtnCtnr.style.border = 'none';
@@ -98,7 +99,7 @@ function Popup() {
             if(size <= 0) {
                 window.clearInterval(interval);
                 this.displayed = false;
-                // document.body.removeChild(this.$popupCtnr);
+                document.body.removeChild(this.$popupCtnr);
             }
         }, 20);
     };

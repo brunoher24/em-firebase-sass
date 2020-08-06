@@ -2,7 +2,7 @@ function getImageData(file) {
     return new Promise((resolve, reject) => {
         const reader  = new FileReader();
 
-        reader.addEventListener("load", function () {
+        reader.addEventListener("load", () => {
             resolve(reader.result);
         }, false);
 
