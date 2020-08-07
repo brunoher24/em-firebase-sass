@@ -1,5 +1,3 @@
-const SESSION_STORAGE_APP_NAME = 'brunoher2404_firebaseapp_em';
-
 const provider = new firebase.auth.FacebookAuthProvider();
 const auth = firebase.auth();
 auth.useDeviceLanguage();

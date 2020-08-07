@@ -2,12 +2,12 @@ const STORAGE_NAME = 'brunoher2404_em_firebase_app';
 
 function Storage(type) {
     this.ref =  window[type + 'Storage'];
-    
+
     if (!this.ref[STORAGE_NAME]) {
         const data = {
             user : {},
         };
-        this.ref[STORAGE_NAME] = JSON.stringify(data);
+        this.ref[STORAGE_NAME] = JSON.stringify(data); 
     }
     
     this.get = () => {    

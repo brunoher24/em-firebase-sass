@@ -17,7 +17,9 @@ $signinBtn.addEventListener('click', async e => {
     if(!uid) return;
     console.log(uid);
     const user      = await getUser(uid);
-    console.log(user.data()); 
+    const storage =  new Storage('local');
+    storage.set('user', user);
+    window.location.href = '../pages/chatroom.html';
 });
 
 
@@ -36,12 +38,12 @@ const updateRefreshedPageNode = (refreshedNbr) => {
 };
 
 const implementRefreshedPageNode = async () => {
-    const querySnapshot = await firebase_.readData("pageRefreshed", "infos");
+    const infos = await firebase_.readData("pageRefreshed", "infos");
  
-    if(!querySnapshot.data()) {
+    if(!infos) {
         initRefreshedPageNode();
     } else {
-        updateRefreshedPageNode(querySnapshot.data().refreshedNbr);
+        updateRefreshedPageNode(infos.refreshedNbr);
     }
     
 }; 

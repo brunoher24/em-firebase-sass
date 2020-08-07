@@ -14,6 +14,10 @@ function getImageData(file) {
     });
 }
 
+function addZero(nbr) {
+    return nbr < 10 ? '0' + nbr : nbr;
+}
+
 function formatDate(timestamp) {
     const months = [
         'janvier',
@@ -44,8 +48,8 @@ function formatDate(timestamp) {
     const y     = date_.getFullYear();
     const m     = date_.getDate() + ' ' + months[date_.getMonth()];
     const d     = days[date_.getDay()];
-    const hours = date_.getHours();
-    const min   = date_.getMinutes();
-    const sec   = date_.getSeconds();
+    const hours = addZero(date_.getHours());
+    const min   = addZero(date_.getMinutes());
+    const sec   = addZero(date_.getSeconds());
     return `${d} ${m} ${y} à ${hours}:${min}:${sec}`;
 }

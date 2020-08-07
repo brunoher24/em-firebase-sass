@@ -19,14 +19,23 @@ firebase_.readData = (ref, docRef) => {
     return new Promise((resolve, reject) => {
         let dbRef = db.collection(ref).doc(docRef);
         dbRef.get().then(querySnapshot => {
-            resolve(querySnapshot);
+            resolve(querySnapshot.data());
         }).catch(err => {
             reject(err);
         });
     });
 }
 
-firebase_.readCollection = (ref, orderBy, orberByField, orderDir, limitNbr, elementToStartAfter) => {
+firebase_.readDataOn = (ref, docRef) => {
+    return new Promise((resolve, reject) => {
+        let dbRef = db.collection(ref).doc(docRef);
+        dbRef.onSnapshot(querySnapshot => {
+            resolve(querySnapshot.data());
+        });
+    });
+}
+
+firebase_.readCollectionOnce = (ref, orderBy, orberByField, orderDir, limitNbr, elementToStartAfter) => {
     return new Promise((resolve, reject) => {
         let dbRef = db.collection(ref);
         
@@ -42,13 +51,36 @@ firebase_.readCollection = (ref, orderBy, orberByField, orderDir, limitNbr, elem
             dbRef = dbRef.limit(limitNbr);
         }
 
-        dbRef.get().then(querySnapshot => {
-            resolve(querySnapshot);
+        dbRef.get().then(collection => {
+            resolve(collection);
         }).catch(err => {
             reject(err);
-        });
+        }); 
     });
 };
+
+firebase_.readCollection = (listeningCallback, ref, orderBy, orberByField, orderDir, limitNbr, elementToStartAfter) => {
+  
+    let dbRef = db.collection(ref);
+    
+    if(orderBy) {
+        dbRef = dbRef.orderBy(orberByField, orderDir);
+    }
+
+    if(elementToStartAfter) {
+        dbRef = dbRef.startAfter(elementToStartAfter);
+    }
+
+    if(limitNbr) {
+        dbRef = dbRef.limit(limitNbr);
+    }
+
+    dbRef.onSnapshot(snapshot => {
+        console.log('Changement dans la collection !');
+        listeningCallback(snapshot);
+    });
+};
+
 
 firebase_.updateData = (collectionRef, docRef, data) => {
     return new Promise((resolve, reject) => {

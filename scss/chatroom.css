@@ -15,7 +15,7 @@ body {
 
 #main-ctnr {
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   background-image: url("../res/playmobil-blur.jpg");
   background-size: cover;
   background-position: center;
@@ -24,6 +24,10 @@ body {
 
 h1 {
   text-align: center;
+}
+
+#messages-section {
+  margin-bottom: 80px;
 }
 
 #messages-list {
@@ -55,6 +59,11 @@ h1 {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 #messages-list li .msg-header > * {
@@ -71,5 +80,62 @@ h1 {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+}
+
+#new-message-section {
+  position: fixed;
+  height: 80px;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: -webkit-gradient(linear, right top, left top, from(#62d495), to(#3eaaf2));
+  background: linear-gradient(to left, #62d495, #3eaaf2);
+}
+
+#new-message-section textarea {
+  border: none;
+  border-radius: 4px;
+  background-color: white;
+  padding: 8px;
+  margin-right: 10px;
+  width: 50%;
+}
+
+#new-message-section button {
+  margin-left: 10px;
+  width: 30px;
+  height: 30px;
+  padding: 5px;
+  background-color: #305ebb;
+  border-radius: 50%;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+#new-message-section button:hover {
+  background-color: white;
+  -webkit-transition: background 0.5s linear;
+  transition: background 0.5s linear;
+}
+
+#new-message-section button:hover .send-msg-icon {
+  color: #305ebb;
+  -webkit-transition: color 0.5s linear;
+  transition: color 0.5s linear;
+}
+
+#new-message-section button .send-msg-icon {
+  color: white;
+  font-size: 20px;
 }
 /*# sourceMappingURL=chatroom.css.map */

@@ -21,8 +21,14 @@ $form.addEventListener('submit', async e => {
     const email     = $emailInput.value.trim();
     const password  = $pwdInput.value.trim();
     const name      = $nameInput.value.trim();
+
+    if(name.length <= 2) {
+        popup = new Popup('Votre pseudo doit faire au moins 3 caractères !');
+        popup = null;
+        return;  
+    }
     
-    const uid       = await firebase_.signupWithEmailAndPassword(email, password);
+    const uid = await firebase_.signupWithEmailAndPassword(email, password);
     if (!uid) {
         popup = new Popup('Erreur lors de la création de votre compte !');
         delete popup;
