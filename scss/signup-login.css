@@ -28,7 +28,6 @@ body #main-ctnr {
 
 #form-ctnr form {
   width: 320px;
-  height: 500px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

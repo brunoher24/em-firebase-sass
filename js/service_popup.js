@@ -1,5 +1,24 @@
+/**
+ * Constructeur Popup
+ *
+ * Ce service sera instancié chaque fois que l'on souhaitera afficher un popup dans la page
+ * 
+ * @param {string} text texte à afficher dans le popup
+ * @param {function} okCallback (optionnel) fonction à déclencher quand l'utilisateur appuie sur le bouton 'ok'
+ * @param {any[]} okParams(optionnel) si besoin, paramêtres que prendra la fonction okCallback, tous rangés dans un array
+ * @param {function} cancelCallback (optionnel) fonction à déclencher quand l'utilisateur appuie sur le bouton 'annuler'
+ * @param {any[]} cancelParams(optionnel) si besoin, paramêtres que prendra la fonction okCallback, tous rangés dans un array
+ * 
+ */
+
 function Popup(text, okCallback, okParams, cancelCallback, cancelParams) {
 
+    /**
+     * Méthode display()
+     *
+     * Création, puis ajout à la page de l'élément HTML contenant le message à afficher + le ou les 2 boutons 'ok' et 'cancel'
+     * 
+     */
     this.display = () => {
         
         if(this.displayed) return;
@@ -78,6 +97,12 @@ function Popup(text, okCallback, okParams, cancelCallback, cancelParams) {
         } 
     };
 
+    /**
+     * Méthode show()
+     *
+     * Animation en Javascript faisant 'apparaitre' le conteneur du popup en faisant passer son ratio de taille de 0 à 1 en 200ms
+     * 
+     */
     this.show = () => {
         let size = 0;
         let interval = window.setInterval(() => {
@@ -90,6 +115,12 @@ function Popup(text, okCallback, okParams, cancelCallback, cancelParams) {
         }, 20);
     };
     
+    /**
+     * Méthode hide()
+     *
+     * Animation en Javascript faisant 'disparaitre' le conteneur du popup en faisant passer son ratio de taille de 1 à 0 en 200ms
+     * 
+     */
     this.hide = () => {
         let size = 1;
         let interval = window.setInterval(() => {

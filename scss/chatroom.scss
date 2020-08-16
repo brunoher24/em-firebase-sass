@@ -1,0 +1,114 @@
+@import 'header';
+$fb_blue: rgb(48, 94, 187);
+
+body {
+    margin: 0;
+}
+
+#main-ctnr {
+    width: 100vw;
+    min-height: 100vh;
+    background-image: url('../res/playmobil-blur.jpg');
+    background-size: cover;
+    background-position: center;
+    padding-top: 100px;
+    
+}
+
+h1 {
+    text-align: center;
+}
+
+#messages-section {
+    margin-bottom: 80px;
+}
+
+#messages-list {
+
+    list-style-type: none;
+    li {
+        padding: 10px;
+        border-radius: 9px;
+        box-shadow: 1px 1px 4px grey;
+        width: 40%;
+        box-sizing: border-box;
+        
+        &.right {
+            margin-left: 55%;
+        }
+
+        &.left {
+            margin-left: 5%;
+        }
+
+        .msg-header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            & > * {
+                margin: 10px;
+            }
+        }
+
+        .user-img {
+            width: 40px;
+            height: 40px;
+            border: 1px double silver;
+            border-radius: 50%;
+            box-shadow: 1px 1px 3px grey;
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+    }
+    
+}
+
+#new-message-section {
+    position: fixed;
+    height: 80px;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @include linearGradient($green, $blue);
+    
+    textarea {
+        border: none;
+        border-radius: 4px;
+        background-color: white;
+        padding: 8px;
+        margin-right: 10px;
+        width: 50%;
+    }
+
+    button {
+        margin-left: 10px;
+        width: 30px;
+        height: 30px;
+        padding: 5px;
+        background-color: $fb_blue;
+        border-radius: 50%;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        &:hover {
+            background-color: white;
+            transition: background 0.5s linear;
+
+            .send-msg-icon {
+                color: $fb_blue;
+                transition: color 0.5s linear;
+            }
+        }
+
+        .send-msg-icon {
+            color: white;
+            font-size: 20px;
+        }
+    }
+}
+

@@ -6,8 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inscription</title>
     <!-- FONTAWESOME -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
-      <!-- MY CSS -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
+        integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+    <!-- MY CSS -->
     <link rel="stylesheet" href="../scss/signup.css">
 </head>
 
@@ -16,6 +17,10 @@
         <div id='form-ctnr'>
             <form>
                 <h2>S'INSCRIRE</h2>
+                <p>
+                    <i class="fas fa-user-astronaut"></i>
+                    <input type="text" id="name-input" placeholder="CHOISIR UN PSEUDO">
+                </p>
                 <p>
                     <i class="far fa-envelope-open"></i>
                     <input type="email" id="mail-input" placeholder="E-MAIL">
@@ -35,7 +40,7 @@
 
         </div>
     </main>
-    
+
     <!-- FIREBASE -->
     <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-auth.js"></script>
@@ -46,7 +51,7 @@
 
     <!-- Services -->
     <script src="../js/service_popup.js"></script>
-    <script src="../js/service_image_reader.js"></script>
+    <script src="../js/service_utilities.js"></script>
 
 
     <!-- Firebase helpers -->
@@ -54,7 +59,7 @@
     <script src="../js/fb_storage.js"></script>
     <script src="../js/fb_auth.js"></script>
     <script src="../js/fb_firestore.js"></script>
-    
+
     <script src="../js/ctrl_signup.js"></script>
 </body>
 
